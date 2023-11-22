@@ -92,11 +92,9 @@ based on the task at hand :
 
     After the training is done . We validate it with validation dataset :
     with torch.no_grad():
-    outputs = model(inputs)
-    predicted_classes = torch.argmax(outputs, dim=1)
-    print(predicted_classes)
-    this will give a tensor which as the output .
-    print(predicted_classes)
+    outputs = trained_model(image)
+                target_image_pred_probs = torch.softmax(outputs, dim=1)
+                 #9. Convert prediction probabilities -> prediction labels
 
                 if predicted_classes[0]==0:
                         predicted_item="dosa"
